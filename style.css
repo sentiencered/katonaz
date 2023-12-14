@@ -1,0 +1,125 @@
+/* style.css */
+@import "masonry.css";
+@import "labs.css";
+
+
+body{
+    font-family: 'Roboto Mono', 'Times New Roman', Times, serif;
+    background-color: #EBE3E0;
+    margin-top: 70px;
+}
+.god{
+    display: grid;
+    grid-template-columns: 10% 90%;
+    place-content: center;
+}
+.lefter {
+    grid-column: 1;
+    width: 100%;
+    margin: 0;
+    padding-left: 30px;
+    padding-right: 10px;
+    place-content: right;
+}
+.righter {
+    grid-column: 2;
+    width: 100%;
+    place-content: center;
+    padding: 10px;
+}
+.header{
+    width: 70%;
+    margin:auto;
+    place-items: left;
+}
+.header .h1{
+    font-size:larger;
+}
+.nav{
+    width: 70%;
+    margin: auto;
+    place-items: center;
+}
+    .nav a:link, .nav a:visited {
+        border-radius: 25px;
+        background-color: #5A859B;
+        color: #EBE3E0;
+        padding: 15px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    .nav a:hover, .nav a:active {
+        background-color: #C70039;
+    }
+.divider{
+    width: 75%;
+    margin:auto;
+    margin-top: 1.75em;
+    border-top: 3px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.75em;
+}
+.contain{
+    width: 30%;
+    margin:auto;
+    place-content: center;
+}
+.twoColumn{
+    width: 70%;
+    margin:auto;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 25px;
+    row-gap: 1em;
+}
+.gallery{
+    display: grid;
+    place-items: center;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 80px auto 80px; 
+    column-gap: 10px;
+    row-gap: 15px;
+}
+.triArea{
+    width: 75%;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: auto; 
+    column-gap: 30px;
+    row-gap: 15px;
+}
+    .triArea a:link, .triArea a:visited {
+        border-radius: 25px;
+        background-color: #839ca8;
+        color: #EBE3E0;
+        padding: 20px 35px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    .triArea a:hover, .triArea a:active {
+        background-color: #ba3259;
+
+    }
+a:link, a:visited {
+    color: #5A859B;
+}
+a:hover, a:active {
+    color: #C70039;
+}
+img{
+    margin: 10px;
+    width: 30%;
+}
+.center{
+    display: grid;
+    place-items: center;
+}
+    .center .big img{
+        width: 80%;
+        opacity: 90%;
+        margin-left: 10%;
+        border-radius: 50px;
+    }

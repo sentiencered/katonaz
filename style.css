@@ -1,125 +1,332 @@
-/* style.css */
+/* styles (desktop priority) */
 @import "masonry.css";
 @import "labs.css";
 
-
-body{
+body {
     font-family: 'Roboto Mono', 'Times New Roman', Times, serif;
     background-color: #EBE3E0;
     margin-top: 70px;
 }
-.god{
+
+.god {
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 10% 90%;  /* Default two columns for desktop */
     place-content: center;
 }
+
 .lefter {
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
     grid-column: 1;
     width: 100%;
     margin: 0;
-    padding-left: 30px;
+    padding-left: 10px;
     padding-right: 10px;
-    place-content: right;
+    place-content: center;
+    font-size: 5vw;  /* Font size relative to viewport width (with scaling) */
+    min-font-size: 1em;  /* Ensure the text doesn't get too small */
+    max-font-size: 6em;  /* Upper limit for font size */
 }
+
 .righter {
     grid-column: 2;
     width: 100%;
-    place-content: center;
+    place-content: right;
     padding: 10px;
 }
-.header{
-    width: 70%;
-    margin:auto;
-    place-items: left;
-}
-.header .h1{
-    font-size:larger;
-}
-.nav{
-    width: 70%;
+
+.nav {
     margin: auto;
-    place-items: center;
+    display: flex;
+    justify-content: center; /* Centers the links */
+    gap: 15px;
+    margin-bottom: 2em;
 }
-    .nav a:link, .nav a:visited {
-        border-radius: 25px;
-        background-color: #5A859B;
-        color: #EBE3E0;
-        padding: 15px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-    }
-    .nav a:hover, .nav a:active {
-        background-color: #C70039;
-    }
-.divider{
+
+.nav a:link, .nav a:visited {
+    border-radius: 25px;
+    background-color: #5A859B;
+    color: #EBE3E0;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav a:hover, .nav a:active {
+    background-color: #C70039;
+}
+
+.divider {
     width: 75%;
-    margin:auto;
+    margin: auto;
     margin-top: 1.75em;
     border-top: 3px solid rgba(0, 0, 0, 0.05);
     margin-bottom: 1.75em;
 }
-.contain{
+
+.contain {
     width: 30%;
-    margin:auto;
+    margin: auto;
+    place-content: center;
+    text-align: center;
+}
+
+.intro {
+    width: 70%;
+    margin: auto;
+    margin-bottom: 20px;
     place-content: center;
 }
-.twoColumn{
-    width: 70%;
-    margin:auto;
+
+.twoColumn {
+    width: 100%;
     display: grid;
     place-items: center;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;  /* Two columns on desktop */
     column-gap: 25px;
     row-gap: 1em;
 }
-.gallery{
+
+.gallery {
     display: grid;
     place-items: center;
-    grid-template-columns: 100px 100px 100px;
-    grid-template-rows: 80px auto 80px; 
+    grid-template-columns: repeat(3, 1fr);  /* Three columns for gallery */
     column-gap: 10px;
     row-gap: 15px;
 }
-.triArea{
-    width: 75%;
+
+.triArea {
+    width: 100%;
     display: grid;
-    place-content: center;
-    grid-template-columns: 200px 200px 200px;
-    grid-template-rows: auto; 
-    column-gap: 30px;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 15px;
     row-gap: 15px;
 }
-    .triArea a:link, .triArea a:visited {
-        border-radius: 25px;
-        background-color: #839ca8;
-        color: #EBE3E0;
-        padding: 20px 35px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-    }
-    .triArea a:hover, .triArea a:active {
-        background-color: #ba3259;
 
-    }
+.triArea a:link, .triArea a:visited {
+    border-radius: 25px;
+    background-color: #839ca8;
+    color: #EBE3E0;
+    padding: 20px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.triArea a:hover, .triArea a:active {
+    background-color: #ba3259;
+}
+
 a:link, a:visited {
     color: #5A859B;
 }
+
 a:hover, a:active {
     color: #C70039;
 }
-img{
+
+img {
     margin: 10px;
     width: 30%;
 }
-.center{
+
+.center {
     display: grid;
     place-items: center;
 }
-    .center .big img{
-        width: 80%;
-        opacity: 90%;
-        margin-left: 10%;
-        border-radius: 50px;
+
+.center .big img {
+    width: 80%;
+    opacity: 90%;
+    margin-left: 10%;
+    border-radius: 50px;
+}
+
+/* Mobile style */
+@media screen and (max-width: 600px) {
+    .god {
+        grid-template-columns: 1fr;  /* Stack columns for mobile */
     }
+
+    .lefter {
+        writing-mode: horizontal-tb;
+        text-orientation: upright;
+        grid-column: 1;
+        text-align: center;
+        font-size: 10vw;  /* Font size relative to viewport width for mobile */
+    }
+
+    .righter {
+        grid-column: 1;  /* Take full width on mobile */
+    }
+
+    .nav {
+        flex-direction: column; /* Stack nav items vertically on mobile */
+        text-align: center;  /* Center navigation links */
+        width: 100%;
+    }
+
+    .nav a:link, .nav a:visited {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0;
+    }
+
+    .twoColumn {
+        grid-template-columns: 1fr;  /* Stack columns on mobile */
+    }
+
+    img {
+        width: 100%;  /* Full width for images on mobile */
+    }
+
+    .center .big img {
+        width: 100%;  /* Full width for centered images on mobile */
+    }
+}
+
+/* Tablet styles (601px - 1024px) */
+@media screen and (min-width: 601px) and (max-width: 1023px) {
+    .god {
+        grid-template-columns: 1fr;  /* Single column layout for tablets */
+        grid-template-rows: auto auto;  /* Ensure two rows: one for .lefter and one for .righter */
+    }
+
+    .lefter {
+        font-size: 7vw;  /* Font size similar to mobile, but a bit larger */
+        writing-mode: horizontal-tb;
+        text-orientation: upright;
+        grid-column: 1;  /* Full-width for tablets */
+        grid-row: 1;  /* Place at the top of the page */
+        text-align: center;  /* Center text */
+        padding-left: 0;  /* Remove side padding */
+        padding-right: 0;
+        margin-bottom: 20px; /* Space between .lefter and .righter */
+    }
+
+    .righter {
+        grid-column: 1;  /* Take full width on tablets */
+        grid-row: 2;  /* Position below .lefter */
+        padding: 15px;
+    }
+
+    .nav {
+        justify-content: space-evenly;  /* Evenly space out links */
+        text-align: center;
+    }
+
+    .twoColumn {
+        grid-template-columns: 1fr 1fr;  /* Two columns for tablets */
+        width: 100%;  /* Give some margin space */
+        row-gap: 1em;
+        column-gap: 20px;
+    }
+
+    img {
+        width: 50%;  /* Larger images on tablets */
+    }
+
+    .center .big img {
+        width: 85%;  /* Adjust image size for tablet */
+    }
+}
+
+/* Desktop styles (1024px and above) */
+@media screen and (min-width: 1024px) {
+    .god {
+        grid-template-columns: 10% 90%;  /* Two columns for desktop */
+    }
+
+    .lefter {
+        font-size: 5vw;  /* Font size adjusts with screen width */
+    }
+
+    .nav {
+        width: 90%;
+        align-items: center;
+        justify-content: space-evenly;  /* Evenly space out links */
+        text-align: center;
+    }
+
+    .twoColumn {
+        margin-left: 150px;
+        width: 75%;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 25px;
+        row-gap: 1.5em;
+    }
+
+    .triArea {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    img {
+        width: 30%;  /* Default image size */
+    }
+
+    .center .big img {
+        width: 80%;
+    }
+}
+
+  
+  .masonry .brick {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Style for the image wrapper */
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;  /* Show pointer cursor to indicate it's clickable */
+    overflow: hidden;
+  }
+  
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+    backface-visibility: hidden; /* Prevent flickering on hover */
+  }
+  
+  /* Hover effect on images: text and shadow will appear */
+  .image-wrapper:hover img {
+    opacity: 0.75;
+  }
+  
+  .image-wrapper:hover .hover-text {
+    opacity: 1;  /* Text becomes visible */
+  }
+  
+  /* Hover text styling */
+  .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25em;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    opacity: 0;  /* Initially hidden */
+    transition: opacity 0.3s ease;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  /* Masonry on tablets */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .masonry {
+      grid-template-columns: repeat(2, 1fr);  /* 2 columns on tablets */
+    }
+  }
+  
+  /* Masonry on large screens */
+  @media only screen and (min-width: 1024px) {
+    .masonry {
+      grid-template-columns: repeat(3, 1fr);  /* 3 columns on larger screens */
+    }
+  }
